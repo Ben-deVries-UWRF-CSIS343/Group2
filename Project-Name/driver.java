@@ -1,6 +1,6 @@
-public class driver{
+public class driver {
 
     public static void main(String[] args) {
-        System.out.println("test");
+        System.out.println("hello2");
     }
 }
