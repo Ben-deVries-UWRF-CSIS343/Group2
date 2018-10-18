@@ -20,9 +20,12 @@ public class address {
     // used for determining if the 1 address is the same as another
     // cannot use the == operator because they may not exist at the same point in
     // the HEAP
-    // note this will return false if they are the same with the exception of the
+
+    //
+    // NOTE: this will return false if they are the same with the exception of the
     // state 'Minnesota' and 'MN' which are the same logically will be seen as
     // different.
+    //
     @Override
     public boolean equals(Object otherObj) {
         if (otherObj instanceof address) {
