@@ -50,6 +50,7 @@ public class address {
                 flag = false;
             }
 
+            return flag;
         } else {
             // they cannot be the same if not comparing the same type
             return false;
