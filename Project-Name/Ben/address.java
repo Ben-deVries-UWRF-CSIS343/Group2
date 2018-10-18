@@ -33,6 +33,8 @@ public class address {
             // assume that these are equal to eachother
             Boolean flag = true;
 
+            // since strings are objects they need to call the .equals methon to compare and
+            // not the == operator
             // then prove they are not
             if (!(addressLine1.equals(addr.addressLine1))) {
                 flag = false;
@@ -50,6 +52,8 @@ public class address {
                 flag = false;
             }
 
+            // if none of the if statements are true the 2 are have the same content and are
+            // equal by content.
             return flag;
         } else {
             // they cannot be the same if not comparing the same type
