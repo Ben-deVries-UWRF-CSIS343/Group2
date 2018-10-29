@@ -32,36 +32,41 @@ public class address {
             // otherObj is an address object, so type cast it to one
             address addr = (address) otherObj;
 
-            // do a data by data comparison
-            // assume that these are equal to eachother
-            Boolean flag = true;
-
             // since strings are objects they need to call the .equals methon to compare and
             // not the == operator
             // then prove they are not
             if (!(addressLine1.equals(addr.addressLine1))) {
-                flag = false;
+                return false;
             }
             if (!(addressLine2.equals(addr.addressLine2))) {
-                flag = false;
+                return false;
             }
             if (!(zipcode = addr.zipCode)) {
-                flag = false;
+                return false;
             }
             if (!(state.equals(addr.state))) {
-                flag = false;
+                return false;
             }
             if (!(city.equals(addr.city))) {
-                flag = false;
+                return false;
             }
 
             // if none of the if statements are true the 2 are have the same content and are
             // equal by content.
-            return flag;
+            return true;
         } else {
             // they cannot be the same if not comparing the same type
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        // formatted in the googlemaps needed string
+        String retVal = addressLine1.trim() + "," + "+" + city.trim() + "," + "+" + state.trim() + "+" + zipCode;
+        retVal = retVal.replace(" ", "+");
+        // 456+2nd+Ave+S,+Minneapolis,+MN+55401
+        return retVal;
     }
 
 }

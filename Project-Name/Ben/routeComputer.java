@@ -26,7 +26,6 @@ public class routeComputer implements maps {
     // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
     public List<String> computeRoute() {
         addresses.clear();
-
     }
 
 }
