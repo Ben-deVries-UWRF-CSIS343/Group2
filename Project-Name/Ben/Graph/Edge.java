@@ -21,7 +21,7 @@ public class Edge {
         _weight = weight;
     }
 
-    public double getVertex1() {
+    public Vertex getVertex1() {
         return _vertex1;
     }
 
@@ -29,7 +29,7 @@ public class Edge {
         _vertex1 = vtx;
     }
 
-    public double getVertex2() {
+    public Vertex getVertex2() {
         return _vertex2;
     }
 

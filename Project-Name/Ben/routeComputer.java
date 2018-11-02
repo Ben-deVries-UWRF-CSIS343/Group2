@@ -45,7 +45,8 @@ public class routeComputer implements maps {
                             .getDistanceFromAddress(source, dest);
                 } else if (address.indexOf(dest) == addresses.indexOf(source)) {
                     // if the source is the destination the cost to get there is irrelevent because
-                    // there is not need to go to where you are
+                    // there is not need to go to where you are, firethermore, this will mess up the
+                    // algorithm because it findes the shortest to alls
                     matrix[addresses.indexOf(source)][addresses.indexOf(dest)] = Integer.MAX_VALUE;
                 }
             }
