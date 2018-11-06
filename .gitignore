@@ -1,12 +1,24 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# source
+/src/favicon.ico
+/src/environments/
+/src/assets/
+/src/polyfills.ts
+/src/test.ts
+/src/main.ts
+/src/styles.css
+/src/favicon.ico
+/src/typings.d.ts
+
 # compiled output
-/dist
+# /dist # we do want to allow /dist so we can display the sample app
+/dist-server
 /tmp
 /out-tsc
 
 # dependencies
-/node_modules
+Project-Name-Frontend/project-name/node_modules
 
 # IDEs and editors
 /.idea
@@ -30,9 +42,13 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
+
+# e2e
+Project-Name-Frontend/angular-cli-esri-map/e2e
+Project-Name-Frontend/angular-cli-esri-map/e2e/*.js
+Project-Name-Frontend/angular-cli-esri-map/e2e/*.map
 
 # System Files
 .DS_Store
