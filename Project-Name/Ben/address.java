@@ -9,7 +9,7 @@ public class address {
     public String addressLine2 = "";
 
     // eg. 12345
-    public integer zipCode = 0;
+    public Integer zipCode = 0;
 
     // eg. Minnesota OR MN
     public String state = "";

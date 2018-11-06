@@ -2,7 +2,7 @@ import java.util.List;
 
 public class routeComputer implements maps {
     // the container for all the addresses
-    private List<address> addresses = new List<address>();
+    private List<address> addresses = new ArrayList<address>();
 
     // will add the given address to the list of addreses
     // will not add duplicate addresses
@@ -26,33 +26,64 @@ public class routeComputer implements maps {
     // this will use multithreading and may need some !!horse-power!!
     // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
     public ArrayList<String> computeRoute() {
-        // make an ajacency matrix
-        // make a 2D array with the height and width of the size of addresses
-        if (addresses.size() == 0) {
+
+        Grapg g = getGraph();
+        if (g == null) {
             return null;
         }
 
-        int matrix[][] = new int[addresses.size()][addresses.size()];
+        return null;
 
-        // loop through all pairs of the addresses to get the distance from source to
-        // destination
+    }
 
-        for (address source : addresses) {
-            // this should go from 0 to n where n is the length - 1
-            for (address dest : addresses) {
-                if (addresses.indexOf(dest) > addresses.indexOf(source)) {
-                    matrix[addresses.indexOf(source)][addresses.indexOf(dest)] = googleMapsInteracter
-                            .getDistanceFromAddress(source, dest);
-                } else if (address.indexOf(dest) == addresses.indexOf(source)) {
-                    // if the source is the destination the cost to get there is irrelevent because
-                    // there is not need to go to where you are, firethermore, this will mess up the
-                    // algorithm because it findes the shortest to alls
-                    matrix[addresses.indexOf(source)][addresses.indexOf(dest)] = Integer.MAX_VALUE;
+    public Graph getGraph() {
+        if (addresses.size() == 0) {
+            return new Graph();
+        }
+
+        Graph g = new Graph();
+        // List v = new ArrayList<Vertex>();
+        // List e = new ArrayList<edge>();
+
+        // iderate the addresses and add them to the graph as verticies
+        for (String addr : addresses) {
+            g.addVertex(new Vertex(addr));
+        }
+
+        // generate edges between every pair of verticies
+        // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+        // MAY WANT MULTI THREADING
+        // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+        for (Vertex vtxOutter : g.getVerticies()) {
+            for (Vertex vtxInner : g.getVerticies()) {
+                // this will execute for every pair of vertecies
+
+                // get the distance between these points using the gooleMapsInteractor
+
+                // ██████
+                // The longest part of this will be waiting for google
+                // thus use the outter if to verify that the edge does not already exist.
+                // ██████
+
+                if (vtxOutter.hasEdge(vtxInner) == null) {
+                    // if the edge does not exist create it
+                    double miles = googleMapsInteracter.getDistanceFromAddress(vtxOutter.getAddress(),
+                            vtxInnter.getAddress());
+                    Edge edge = new Edge();
+                    edge.setWeight(miles);
+                    edge.setVertex1(vtxOutter);
+                    edge.setVertex2(vtxInner);
+
+                    // add the edge to the verticies
+                    vtxOutter.addEdge(edge);
+                    vtxInner.addEdge(edge);
+
                 }
             }
         }
 
-        // do all the crap
+        return g;
     }
 
 }

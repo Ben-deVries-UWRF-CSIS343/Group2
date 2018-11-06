@@ -30,6 +30,7 @@ public class googleMapsInteracter {
         url += destination.toString();
 
         // get the html
+        System.out.println(url);
         String html = getHTMLFromURL(url);
         // parse the html to get the miles value
 

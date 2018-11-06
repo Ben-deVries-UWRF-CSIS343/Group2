@@ -1,12 +1,6 @@
 import java.util.ArrayList;
 
-import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
-
-// this is for testing on the files under the 'ben' sub directory
-// DO NOT CHANGE
-
 public class benDriver {
-
     public boolean runTests() {
 
         ArrayList<Exception> al = new ArrayList();
@@ -16,73 +10,26 @@ public class benDriver {
         return al.size() == 0;
     }
 
-    public ArrayList<Exception> testAddresses() {
-        ArrayList<Exception> al = new ArrayList();
+    public static void testing() {
+        address a1 = new address();
+        address a2 = new address();
 
-        address addr = new address();
-        address addr2 = new address();
+        a1.addressLine1 = "123 Main St";
+        a1.city = "Hudson";
+        a1.state = "WI";
+        a1.zipCode = 54016;
 
-        // create identical addresses
-        addr.addressLine1 = "123 Main St.";
-        addr.addressLine2 = "";
-        addr.city = "River Falls";
-        addr.state = "WI";
-        addr.zipCode = 54987;
+        a2.addressLine1 = "456 2nd St";
+        a2.city = "river falls";
+        a2.state = "WI";
+        a2.zipCode = 54022;
 
-        addr2.addressLine1 = "123 Main St.";
-        addr2.addressLine2 = "";
-        addr2.city = "River Falls";
-        addr2.state = "WI";
-        addr2.zipCode = 54987;
+        for (int i = 0; i <= 20; i++) {
 
-        if (!(addr.equals(addr))) {
-            al.add(new Exception("The address class is not properly running comparisons: addr = addr"));
-        }
-        if (!(addr.equals(addr2))) {
-            al.add(new Exception("The address class is not properly running comparisons: addr = addr2"));
+            googleMapsInteracter.getDistanceFromAddress(a1, a2);
+
+            System.out.println(i);
         }
 
-        addr2.addressLine1 = "124 Main St.";
-        addr2.addressLine2 = "";
-        addr2.city = "River Falls";
-        addr2.state = "WI";
-        addr2.zipCode = 54987;
-
-        if (addr.equals(addr2)) {
-            al.add(new Exception(
-                    "The address class is not properly running comparisons: addr = modified address line 1"));
-        }
-
-        addr2.addressLine1 = "123 Main St.";
-        addr2.addressLine2 = "1";
-
-        if (addr.equals(addr2)) {
-            al.add(new Exception(
-                    "The address class is not properly running comparisons: addr = modified address line 2"));
-        }
-
-        addr.addressLine2 = "";
-        addr.city = "Hudson";
-
-        if (addr.equals(addr2)) {
-            al.add(new Exception("The address class is not properly running comparisons: addr = modified city"));
-        }
-
-        addr.city = "River Falls";
-        addr.state = "CA";
-
-        if (addr.equals(addr2)) {
-            al.add(new Exception("The address class is not properly running comparisons: addr = modified state"));
-        }
-
-        addr.state = "WI";
-        addr.zipCode = 99999;
-
-        if (addr.equals(addr2)) {
-            al.add(new Exception("The address class is not properly running comparisons: addr = modified zip code"));
-        }
-
-        // return the list of exceptions
-        return al;
     }
 }

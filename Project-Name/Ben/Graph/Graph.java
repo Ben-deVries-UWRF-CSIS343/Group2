@@ -1,14 +1,10 @@
 public class Graph {
-    private ArrayList<Vertex> _vertecies;
+    private List<Vertex> _vertecies;
 
     // NOTE we are passing around objects and as such if the originals change it
     // will screw up the objects
-    public void Graph(ArrayList<Vertex> vertecies) {
-        _vertecies = vertecies;
-    }
-
-    public void Graph() {
-        _vertecies = new ArrayList<Vertex>();
+    public void Graph(List<Vertex> vertecies) {
+        _vertecies = verticies;
     }
 
     public void addVertex(Vertex vtx) {

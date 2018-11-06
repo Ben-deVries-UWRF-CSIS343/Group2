@@ -3,25 +3,44 @@ public class Vertex {
     // used toas a unique id for the vertex
     private long uniqueCreationTime;
     private ArrayList<Edge> _egdes;
+    private address _address;
 
-    public void Vertex(ArrayList<Edge> edges) {
-        _edges = edges;
+    public void Vertex(address addr) {
         uniqueCreationTime = System.name();
-    }
-
-    public void Vertex() {
-        uniqueCreationTime = System.name();
+        _address = addr;
     }
 
     public void addEdge(edge edge) {
         _edges.add(edge);
     }
 
+    // determine if an edge exists between this vertex and another 'otherVertex'
+    // returning null means that it oes not exist, otherwise it will return the edge
+    public Edge hasEdge(Vertex otherVertex) {
+        Edge foundEdge;
+        for (Edge edge : _edge) {
+            if (edge.getVertex1().equals(otherVertex) || edge.getVertex2().equals(otherVertex)) {
+                foundEdge = edge;
+                break;
+            }
+        }
+        return foundEdge;
+    }
+
     public ArrayList<Edge> getEdges() {
         return _edges;
     }
 
-    public ArrayList<distanceToVertex> getAllAjoiningVerticesWeight() {
+    public address getAddress() {
+        return _address;
+    }
+
+    // note setting this may render the edge weights invalid
+    public void setAddress(address newAddress) {
+        _address = newAddress;
+    }
+
+    public ArrayList<distanceToVertex> getAlladjoiningVerticesWeight() {
         ArrayList<distanceToVertex> distance = new ArrayList<distanceToVertex>();
         // iderate through all the connected edges and get the other vertex, add it to a
         // list of verticies and return the list
@@ -37,6 +56,7 @@ public class Vertex {
                 dist.vertex = edge.getVertex2();
             }
 
+            // the distance is the same regardless
             distance.add(dist);
         }
         return distance;

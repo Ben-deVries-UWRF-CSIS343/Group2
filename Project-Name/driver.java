@@ -1,7 +1,10 @@
 public class driver {
 
     public static void main(String[] args) {
-        System.out.println("hello2");
+        System.out.println("pre-testing");
+        benDriver.testing();
+
+        System.out.println("Complete");
 
     }
 }

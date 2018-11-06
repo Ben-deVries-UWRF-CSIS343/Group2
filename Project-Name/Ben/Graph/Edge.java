@@ -17,7 +17,7 @@ public class Edge {
         return _weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         _weight = weight;
     }
 
@@ -25,7 +25,7 @@ public class Edge {
         return _vertex1;
     }
 
-    public void setWeight(vertex vtx) {
+    public void setVertex1(Vertex vtx) {
         _vertex1 = vtx;
     }
 
@@ -33,7 +33,7 @@ public class Edge {
         return _vertex2;
     }
 
-    public void setWeight(Vertex vtx) {
+    public void setVertex2(Vertex vtx) {
         _vertex2 = vtx;
     }
 
