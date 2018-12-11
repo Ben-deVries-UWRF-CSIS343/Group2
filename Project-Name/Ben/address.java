@@ -1,4 +1,4 @@
-public class address {
+public class Address {
     public boolean isStartingPoint = false;
     public boolean isEndingPoint = false;
 
@@ -28,9 +28,9 @@ public class address {
     //
     @Override
     public boolean equals(Object otherObj) {
-        if (otherObj instanceof address) {
+        if (otherObj instanceof Address) {
             // otherObj is an address object, so type cast it to one
-            address addr = (address) otherObj;
+            Address addr = (Address) otherObj;
 
             // since strings are objects they need to call the .equals methon to compare and
             // not the == operator
@@ -41,7 +41,7 @@ public class address {
             if (!(addressLine2.equals(addr.addressLine2))) {
                 return false;
             }
-            if (!(zipcode = addr.zipCode)) {
+            if (zipCode != addr.zipCode) {
                 return false;
             }
             if (!(state.equals(addr.state))) {

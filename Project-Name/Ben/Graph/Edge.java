@@ -1,16 +1,17 @@
+
 public class Edge {
-    private double _weight;
+    private double _weight = 0;
 
     private Vertex _vertex1;
     private Vertex _vertex2;
 
-    public void Edge(double weight, Vertex v1, Vertex v2) {
+    public Edge(double weight, Vertex v1, Vertex v2) {
         _weight = weight;
-        vertex1 = v1;
-        vertex2 = v2;
+        _vertex1 = v1;
+        _vertex2 = v2;
     }
 
-    public void Edge() {
+    public Edge() {
     }
 
     public double getWeight() {

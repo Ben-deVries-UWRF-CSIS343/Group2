@@ -1,24 +1,31 @@
+
+import java.util.ArrayList;
+
 public class Vertex {
 
-    // used toas a unique id for the vertex
+    // used as a unique id for the vertex
     private long uniqueCreationTime;
-    private ArrayList<Edge> _egdes;
-    private address _address;
+    private ArrayList<Edge> _edges = new ArrayList<Edge>();
+    private Address _address;
 
-    public void Vertex(address addr) {
-        uniqueCreationTime = System.name();
+    public Vertex(Address addr) {
+        uniqueCreationTime = System.nanoTime();
         _address = addr;
     }
 
-    public void addEdge(edge edge) {
+    public void addEdge(Edge edge) {
         _edges.add(edge);
+    }
+
+    public void removeAllEdges() {
+        _edges = new ArrayList<Edge>();
     }
 
     // determine if an edge exists between this vertex and another 'otherVertex'
     // returning null means that it oes not exist, otherwise it will return the edge
     public Edge hasEdge(Vertex otherVertex) {
-        Edge foundEdge;
-        for (Edge edge : _edge) {
+        Edge foundEdge = null;
+        for (Edge edge : _edges) {
             if (edge.getVertex1().equals(otherVertex) || edge.getVertex2().equals(otherVertex)) {
                 foundEdge = edge;
                 break;
@@ -31,12 +38,12 @@ public class Vertex {
         return _edges;
     }
 
-    public address getAddress() {
+    public Address getAddress() {
         return _address;
     }
 
     // note setting this may render the edge weights invalid
-    public void setAddress(address newAddress) {
+    public void setAddress(Address newAddress) {
         _address = newAddress;
     }
 
@@ -79,6 +86,6 @@ public class Vertex {
         Vertex vertexOther = (Vertex) other;
 
         // Compare the data members and return accordingly
-        return this.uniqueCreationTime == other.getUnique();
+        return this.uniqueCreationTime == vertexOther.getUnique();
     }
 }
