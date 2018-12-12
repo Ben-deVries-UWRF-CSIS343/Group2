@@ -1,4 +1,4 @@
-public class address {
+public class Address {
     public boolean isStartingPoint = false;
     public boolean isEndingPoint = false;
 
@@ -9,7 +9,7 @@ public class address {
     public String addressLine2 = "";
 
     // eg. 12345
-    public integer zipCode = 0;
+    public Integer zipCode = 0;
 
     // eg. Minnesota OR MN
     public String state = "";
@@ -20,40 +20,53 @@ public class address {
     // used for determining if the 1 address is the same as another
     // cannot use the == operator because they may not exist at the same point in
     // the HEAP
-    // note this will return false if they are the same with the exception of the
+
+    //
+    // NOTE: this will return false if they are the same with the exception of the
     // state 'Minnesota' and 'MN' which are the same logically will be seen as
     // different.
+    //
     @Override
     public boolean equals(Object otherObj) {
-        if (otherObj instanceof address) {
+        if (otherObj instanceof Address) {
             // otherObj is an address object, so type cast it to one
-            address addr = (address) otherObj;
+            Address addr = (Address) otherObj;
 
-            // do a data by data comparison
-            // assume that these are equal to eachother
-            Boolean flag = true;
-
+            // since strings are objects they need to call the .equals methon to compare and
+            // not the == operator
             // then prove they are not
             if (!(addressLine1.equals(addr.addressLine1))) {
-                flag = false;
+                return false;
             }
             if (!(addressLine2.equals(addr.addressLine2))) {
-                flag = false;
+                return false;
             }
-            if (!(zipcode = addr.zipCode)) {
-                flag = false;
+            if (zipCode != addr.zipCode) {
+                return false;
             }
             if (!(state.equals(addr.state))) {
-                flag = false;
+                return false;
             }
             if (!(city.equals(addr.city))) {
-                flag = false;
+                return false;
             }
 
+            // if none of the if statements are true the 2 are have the same content and are
+            // equal by content.
+            return true;
         } else {
             // they cannot be the same if not comparing the same type
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        // formatted in the googlemaps needed string
+        String retVal = addressLine1.trim() + "," + "+" + city.trim() + "," + "+" + state.trim() + "+" + zipCode;
+        retVal = retVal.replace(" ", "+");
+        // 456+2nd+Ave+S,+Minneapolis,+MN+55401
+        return retVal;
     }
 
 }

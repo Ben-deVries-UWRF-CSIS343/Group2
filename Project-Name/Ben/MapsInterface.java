@@ -1,10 +1,13 @@
-interface maps {
+import java.util.List;
 
-    public void addAddress(address addr);
+public interface MapsInterface {
+
+    public void addAddress(Address addr);
+
+    public void removeAddress(Address addr);
 
     public List<String> computeRoute();
 
     public void clearAddresses();
 
-    public void removeAddress(address addr);
 }
