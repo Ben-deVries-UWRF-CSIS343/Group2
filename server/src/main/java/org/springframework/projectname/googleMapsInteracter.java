@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class googleMapsInteracter implements IMapsInteractor {
+public class googleMapsInteracter implements IMapsInteractor{
 
     // this will download an html page into a string builder and then return it to
     // the calling function as a string
@@ -48,8 +48,8 @@ public class googleMapsInteracter implements IMapsInteractor {
         strURL += "/";
         strURL += destination.toString();
 
-        // temp for testing
-        // strURL="https://www.google.com/maps/dir/568+2nd+St+SW,+Britt,+IA/123+Main+St+S,+Stillwater,+MN+55082";
+        //temp for testing
+        //strURL="https://www.google.com/maps/dir/568+2nd+St+SW,+Britt,+IA/123+Main+St+S,+Stillwater,+MN+55082";
         try {
             int iter = 0;
             while (html.indexOf("mile") == -1) {
@@ -63,25 +63,27 @@ public class googleMapsInteracter implements IMapsInteractor {
                 if (iter == 100) {
                     break;
                 } else {
-                    System.out.println("the iter is: " + iter);
-                    System.out.println(strURL);
+                    // we could do some preventative code here such that as we approach 100 we try somthing else
                 }
             }
 
-            // is = url.openStream(); // throws an IOException
-            // br = new BufferedReader(new InputStreamReader(is));
 
-            // while ((line = br.readLine()) != null) {
-            // html += line + "\n";
-            // }
+
+
+
+            //is = url.openStream();  // throws an IOException
+            //br = new BufferedReader(new InputStreamReader(is));
+
+            //while ((line = br.readLine()) != null) {
+//	        	html += line + "\n";
+            //}
         } catch (MalformedURLException mue) {
             mue.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         } finally {
             try {
-                if (is != null)
-                    is.close();
+                if (is != null) is.close();
             } catch (IOException ioe) {
                 // nothing to see here
             }
@@ -120,7 +122,7 @@ public class googleMapsInteracter implements IMapsInteractor {
         strURL += "/";
         strURL += destination.toString();
 
-        URL url = new URL(strURL);
+        java.net.URL url = new URL(strURL);
 
         // get the HTML
         String html = getHTMLFromURL(url);
@@ -145,7 +147,6 @@ public class googleMapsInteracter implements IMapsInteractor {
         miles = Double.parseDouble(stringMiles);
         return miles;
     }
-
     private static String readStream(InputStream in) {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(in));) {

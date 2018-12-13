@@ -12,8 +12,7 @@ public class Edge {
         _vertex2 = v2;
     }
 
-    public Edge() {
-    }
+    public Edge() {}
 
     public double getWeight() {
         return _weight;
