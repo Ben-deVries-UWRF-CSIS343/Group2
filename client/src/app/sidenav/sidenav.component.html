@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1>{{title}}</h1>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #snav [mode]="'side'">
+      <h2>Welcome to {{ title }}!</h2>
+      <form>
+          <mat-form-field>
+            <input matInput placeholder="Start Coordinates">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="End Coordinates">
+          </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary">Calculate</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-esri-map></app-esri-map>
+  </mat-sidenav-content>
+</mat-sidenav-container>
