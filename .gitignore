@@ -18,7 +18,7 @@
 /out-tsc
 
 # dependencies
-Project-Name-Frontend/project-name/node_modules
+client/node_modules
 
 # IDEs and editors
 /.idea
