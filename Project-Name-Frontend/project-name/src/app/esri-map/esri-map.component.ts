@@ -24,8 +24,8 @@ import esri = __esri;
 export class EsriMapComponent implements OnInit {
 
   // Private vars with default values
-  private _zoom = 10;
-  private _center = [0.1278, 51.5074];
+  private _zoom = 16;
+  private _center = [-92.6212, 44.8522];
   private _basemap = 'streets';
 
   @Input()
