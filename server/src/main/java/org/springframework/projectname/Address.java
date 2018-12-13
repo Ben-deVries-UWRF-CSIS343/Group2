@@ -25,7 +25,7 @@ public class Address {
     public String addressLine2 = "";
 
     // eg. 12345
-    public String zipCode = "";
+    public int zipCode;
 
     // eg. Minnesota OR MN
     public String state = "";
@@ -56,7 +56,7 @@ public class Address {
             if (!(addressLine2.equals(addr.addressLine2))) {
                 flag = false;
             }
-            if (!(zipCode.equals(addr.zipCode))) {
+            if (!(zipCode == (addr.zipCode))) {
                 flag = false;
             }
             if (!(state.equals(addr.state))) {
@@ -79,7 +79,7 @@ public class Address {
                    String name,
                    String addressLine1,
                    String addressLine2,
-                   String zipCode,
+                   int zipCode,
                    String state,
                    String city) {
         this.setId(id);
@@ -123,11 +123,11 @@ public class Address {
         this.addressLine2 = addressLine2;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 

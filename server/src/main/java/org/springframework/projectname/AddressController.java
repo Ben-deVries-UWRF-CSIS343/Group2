@@ -34,7 +34,7 @@ class AddressController {
         String name = body.get("name");
         String addressLine1 = body.get("addressLine1");
         String addressLine2 = body.get("addressLine2");
-        String zipcode = body.get("zipcode");
+        int zipcode = Integer.parseInt(body.get("zipCode"));
         String state = body.get("state");
         String city = body.get("city");
         return addressMockedData.createAddress(id, name, addressLine1, addressLine2, zipcode, state, city);
