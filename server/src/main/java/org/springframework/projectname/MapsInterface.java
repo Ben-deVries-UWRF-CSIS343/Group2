@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface MapsInterface {
 
-    public void addAddress(Address addr);
+    public void addAddress(tudeAddress addr);
 
-    public void removeAddress(Address addr);
+    public void removeAddress(tudeAddress addr);
 
     public List<String> computeRoute();
 

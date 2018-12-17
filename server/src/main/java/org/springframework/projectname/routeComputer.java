@@ -10,18 +10,18 @@ import java.util.List;
 
 public class routeComputer implements MapsInterface {
     // the container for all the addresses
-    private List<Address> addresses = null;
+    private List<tudeAddress> addresses = null;
 
     // will add the given address to the list of addreses
     // will not add duplicate addresses
-    public void addAddress(Address addr) {
+    public void addAddress(tudeAddress addr) {
         if (!(addresses.contains(addr))) {
             addresses.add(addr);
         }
     }
 
     // will remove an address from the addresses list
-    public void removeAddress(Address addr) {
+    public void removeAddress(tudeAddress addr) {
         addresses.remove(addr);
     }
 
@@ -52,7 +52,7 @@ public class routeComputer implements MapsInterface {
         // List e = new ArrayList<edge>();
 
         // iderate the addresses and add them to the graph as verticies
-        for (Address addr : addresses) {
+        for (tudeAddress addr : addresses) {
             g.addVertex(new Vertex(addr));
         }
 

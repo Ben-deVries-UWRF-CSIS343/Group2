@@ -35,7 +35,7 @@ public class googleMapsInteracter implements IMapsInteractor{
         return sb.toString();
     }
 
-    public double getDistanceFromAddress(Address source, Address destination) {
+    public double getDistanceFromAddress(tudeAddress source, tudeAddress destination) {
         double miles = 0;
         URL url = null;
         InputStream is = null;

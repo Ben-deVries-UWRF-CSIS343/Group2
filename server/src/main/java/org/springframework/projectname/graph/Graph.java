@@ -24,7 +24,7 @@ public class Graph {
         // verify that the graph does not already have the vertex that is being added by
         // checking the 'unique' value
 
-        //if a null list was passed at creation time we should make a default list
+        // if a null list was passed at creation time we should make a default list
         if (_vertecies == null) {
             _vertecies = new ArrayList<Vertex>();
         }
@@ -51,27 +51,30 @@ public class Graph {
     public void clear() {
         _vertecies = new ArrayList<Vertex>();
     }
+
     // returns the number of edges
     public int addEdges() {
-        for (Vertex v: _vertecies) {
+        for (Vertex v : _vertecies) {
             v.removeAllEdges();
         }
 
         weightCalculator.calculate();
         return getEdgeCount();
     }
+
     public int getEdgeCount() {
         int count = 0;
         double totalWeight = 0;
-        for (Vertex v: _vertecies) {
+        for (Vertex v : _vertecies) {
             count += v.getEdges().size();
             // get the total weight
-            for (Edge e: v.getEdges()) {
+            for (Edge e : v.getEdges()) {
                 totalWeight += e.getWeight();
             }
         }
-        // the /2 is because we are counting the references to edges and every edge is references twice (once by the vertex on each end)
-        return count/2;
+        // the /2 is because we are counting the references to edges and every edge is
+        // references twice (once by the vertex on each end)
+        return count / 2;
 
     }
 }
