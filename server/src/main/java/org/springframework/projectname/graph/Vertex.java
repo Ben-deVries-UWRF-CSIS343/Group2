@@ -1,6 +1,8 @@
 package org.springframework.projectname.graph;
 
 import org.springframework.projectname.Address;
+import org.springframework.projectname.tudeAddress;
+
 import java.util.ArrayList;
 
 public class Vertex {
@@ -8,9 +10,9 @@ public class Vertex {
     // used as a unique id for the vertex
     private long uniqueCreationTime;
     private ArrayList<Edge> _edges = new ArrayList<Edge>();
-    private Address _address;
+    private tudeAddress _address;
 
-    public Vertex(Address addr) {
+    public Vertex(tudeAddress addr) {
         uniqueCreationTime = System.nanoTime();
         _address = addr;
     }
@@ -39,12 +41,12 @@ public class Vertex {
         return _edges;
     }
 
-    public Address getAddress() {
+    public tudeAddress getAddress() {
         return _address;
     }
 
     // note setting this may render the edge weights invalid
-    public void setAddress(Address newAddress) {
+    public void setAddress(tudeAddress newAddress) {
         _address = newAddress;
     }
 

@@ -10,7 +10,7 @@ public class BFStrategy implements IRouteStrategy {
     private List<vDistance> thingsToConsider = null;
     public static final String delimiteChar = "a";
 
-    public Address[] computeRoute(Graph g) {
+    public tudeAddress[] computeRoute(Graph g) {
         if (thingsToConsider == null) {
             for (Vertex v: g.getVerticies()) {
                 if (v.getAddress().isStartingPoint) {
@@ -20,7 +20,7 @@ public class BFStrategy implements IRouteStrategy {
                 }
             }
         }
-
+        // If the thingsToConsider is still null there is nothing set with the address.isStratingPoint equal to true and will cause an error on the following collections.sort line
 
         // this should sort the list by the distance to get to it
         Collections.sort(thingsToConsider);
@@ -87,7 +87,7 @@ public class BFStrategy implements IRouteStrategy {
                 // the list of vertex uniquue ids in the correct order
                 String[] IDs = route.route.split(delimiteChar);
                 // array for converting the vertex ids back to an address
-                Address[] addresses = new Address[IDs.length];
+                tudeAddress[] addresses = new tudeAddress[IDs.length];
 
                 // for each vertex(a) id in IDs
                 for (int i = 0; i < IDs.length; i++) {
