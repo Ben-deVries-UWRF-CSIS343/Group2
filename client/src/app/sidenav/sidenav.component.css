@@ -1,3 +1,31 @@
 .mat-sidenav-backdrop.mat-sidenav-shown{
     background-color: transparent !important;
 }
+
+.toolbar-title {
+    margin: 16px;
+}
+
+.toolbar-button {
+    background-color: #c2185b;
+}
+
+.sidenav-container, .sidenav-content {
+    height: 100%;
+}
+
+.start-form {
+    margin: 16px;
+}
+
+.end-form {
+    margin: 16px;
+}
+
+.form-field {
+    padding: 8px;
+}
+
+.sidenav-button {
+    margin: 16px;
+}
