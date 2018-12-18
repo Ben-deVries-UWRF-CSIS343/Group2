@@ -12,10 +12,10 @@ export class AppComponent {
 
   ngOnInit() {
 
-    // Example of RESTful GET
-    this.appService.getAddress().subscribe((response) => console.log(response));
+    // // Example of RESTful GET
+    // this.appService.getAddress().subscribe((response) => console.log(response));
 
-    // Example of RESTful POST
-    this.appService.addAddress();
+    // // Example of RESTful POST
+    // this.appService.addAddress();
   }
 }

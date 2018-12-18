@@ -22,7 +22,7 @@
             <input matInput readonly [(ngModel)]="endLongitude" placeholder="Longitude" name="longitude">
           </mat-form-field>
         </form>
-      <button class="sidenav-button" mat-raised-button (click)="calculateRoute(startLatitude, startLongitude, endLatitude, endLongitude)" color="primary">Calculate</button>
+      <button *ngIf="(startLatitude !== 0) && (endLatitude !== 0)" class="sidenav-button" mat-raised-button (click)="calculateRoute(startLatitude, startLongitude, endLatitude, endLongitude)" color="primary">Calculate</button>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
     <app-esri-map (mapLoaded)=saveMapView($event) (click)=onClick($event)></app-esri-map>
