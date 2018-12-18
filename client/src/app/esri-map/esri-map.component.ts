@@ -1,3 +1,4 @@
+import { AppService } from './../app.service';
 import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { loadModules } from 'esri-loader';
 import esri = __esri;
@@ -23,7 +24,7 @@ export class EsriMapComponent implements OnInit {
   // this is needed to be able to create the MapView at the DOM element in this component
   @ViewChild('mapViewNode') private mapViewEl: ElementRef;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   async initializeMap() {
     try {
@@ -54,7 +55,11 @@ export class EsriMapComponent implements OnInit {
       // Now execute additional processes
       this.mapView.when(() => {
         this.mapLoaded.emit(this.mapView);
+        // Example of RESTful GET
+        this.appService.getAddress().subscribe((response) => console.log(response));
 
+        // Example of RESTful POST
+        this.appService.addAddress();
       });
     } catch (error) {
       alert('We have an error: ' + error);

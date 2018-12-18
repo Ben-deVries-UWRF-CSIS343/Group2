@@ -1,19 +1,18 @@
 package org.springframework.projectname;
 
-import ch.qos.logback.core.CoreConstants;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Collection;
-import java.util.Map;
-import java.util.stream.Collectors;
 
+import java.util.Map;
 import java.util.List;
 
-
+// Allows javascript on our web server to consume/expose these REST APIs
 @CrossOrigin(origins = "http://localhost:4200")
+// This annotation is used for creating a RESTful web service which allows creation
+// of custom APIs.
 @RestController
 class AddressController {
     private AddressRepository repository;
@@ -24,12 +23,14 @@ class AddressController {
 
     AddressMockData addressMockedData = AddressMockData.getInstance();
 
-
+    // GetMapping is for the HTTP method GET which retrieves all of our addresses
     @GetMapping("/address")
     public List<Address> index() {
         return addressMockedData.fetchAddressList();
     }
 
+    // PostMapping is for the HTTP method POST which allows us to add new addresses
+    // RequestBody is the metadata or content for this POST message
     @PostMapping(path = "/address", consumes = "application/json", produces = "application/json")
     public Address createAdress(@RequestBody Map<String, String> body) {
         int id = Integer.parseInt(body.get("id"));

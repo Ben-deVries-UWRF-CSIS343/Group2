@@ -15,8 +15,6 @@ public class ProjectNameApplication {
 
     @Bean
     ApplicationRunner init(AddressRepository repository) {
-        System.out.println("hello2");
-
         return args -> {
             Stream.of("Peter", "Schaber", "Ben", "DeVries", "Michael", "Carll")
                     .forEach(name -> {
