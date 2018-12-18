@@ -1,21 +1,30 @@
-<mat-toolbar>
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1>{{title}}</h1>
+<mat-toolbar class="">
+    <button class="toolbar-button" mat-icon-button (click)="snav.toggle()"><mat-icon></mat-icon></button>
+    <h1 class="toolbar-title">{{title}}</h1>
 </mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav #snav [mode]="'side'">
-      <h2>Welcome to {{ title }}!</h2>
-      <form>
-          <mat-form-field>
-            <input matInput placeholder="Start Coordinates">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #snav [opened]="true" [mode]="'side'">
+      <form class="start-form">
+        <h4>Starting Coordinates</h4>
+          <mat-form-field class="form-field">
+            <input matInput readonly [(ngModel)]="startLatitude" step="0.01" placeholder="Latitude" name="latitude">
           </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="End Coordinates">
+          <mat-form-field class="form-field">
+            <input matInput readonly [(ngModel)]="startLongitude" placeholder="Longitude" name="longitude">
           </mat-form-field>
       </form>
-      <button mat-raised-button color="primary">Calculate</button>
+      <form class="end-form">
+        <h4>Ending Coordinates</h4>
+          <mat-form-field class="form-field">
+            <input matInput readonly [(ngModel)]="endLatitude" placeholder="Latitude" name="latitude">
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <input matInput readonly [(ngModel)]="endLongitude" placeholder="Longitude" name="longitude">
+          </mat-form-field>
+        </form>
+      <button class="sidenav-button" mat-raised-button (click)="calculateRoute(startLatitude, startLongitude, endLatitude, endLongitude)" color="primary">Calculate</button>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <app-esri-map></app-esri-map>
+  <mat-sidenav-content class="sidenav-content">
+    <app-esri-map (mapLoaded)=saveMapView($event) (click)=onClick($event)></app-esri-map>
   </mat-sidenav-content>
 </mat-sidenav-container>

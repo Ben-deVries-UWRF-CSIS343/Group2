@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { EsriMapComponent } from './esri-map/esri-map.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
@@ -24,7 +27,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatSidenavModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
