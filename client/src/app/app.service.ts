@@ -17,7 +17,7 @@ export class AppService {
   }
 
   addAddress() {
-    const obs2 = this.http.post<Map<String, String>>('http://localhost:8080/address', {
+    const obs = this.http.post<Map<String, String>>('http://localhost:8080/address', {
       id: '101010',
       name: 'Peter-POST',
       addressLine1: 'addressLine1-POST',
@@ -26,6 +26,16 @@ export class AppService {
       state: 'state-POST',
       city: 'city-POST'
     }, this.httpOptions);
-    obs2.subscribe((response) => console.log(response));
+    obs.subscribe((response) => console.log(response));
+  }
+
+  addTudeAddress(start: boolean, end: boolean, lat: number, long: number) {
+    const obs = this.http.post<Map<String, String>>('http://localhost:8080/tudeAddress', {
+      isStartingPoint: start,
+      isEndingPoint: end,
+      lat: lat,
+      long: long,
+    }, this.httpOptions);
+    obs.subscribe((response) => console.log(response));
   }
 }

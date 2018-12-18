@@ -18,9 +18,9 @@ public class AddressMockData {
 
     public AddressMockData() {
         addressList = new ArrayList<Address>();
-//        addressList.add(new Address(10, "Peter", "Peter-addressLine1", "Peter-addressLine2", "Peter-zipCode", "Peter-state", "Peter-city"));
-//        addressList.add(new Address(11, "Ben", "Ben-addressLine1", "Ben-addressLine2", "Ben-zipCode", "Ben-state", "Ben-city"));
-//        addressList.add(new Address(12, "Michael", "Michael-addressLine1", "Michael-addressLine2", "Michael-zipCode", "Michael-state", "Michael-city"));
+        addressList.add(new Address(10, "Peter", "Peter-addressLine1", "Peter-addressLine2", 54022, "Peter-state", "Peter-city"));
+        addressList.add(new Address(11, "Ben", "Ben-addressLine1", "Ben-addressLine2", 55022, "Ben-state", "Ben-city"));
+        addressList.add(new Address(12, "Michael", "Michael-addressLine1", "Michael-addressLine2", 54022, "Michael-state", "Michael-city"));
     }
 
     public List<Address> fetchAddressList() {

@@ -32,7 +32,7 @@ describe('EsriMapComponent', () => {
   });
 
   it('zoom has a default value', () => {
-    console.log('center ' + app.zoom);
+    // console.log('center ' + app.zoom);
     expect(app.zoom).toBeGreaterThanOrEqual(0);
     expect(app.zoom).toBeLessThanOrEqual(24);
   });
