@@ -13,6 +13,13 @@ public class tudeAddress{
         this.lon = lon;
     }
 
+    tudeAddress(boolean isStartingPoint, boolean isEndingPoint, double lat, double lon) {
+        this.isStartingPoint = isStartingPoint;
+        this.isEndingPoint = isEndingPoint;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
     public double getLat(){
         return lat;
     }

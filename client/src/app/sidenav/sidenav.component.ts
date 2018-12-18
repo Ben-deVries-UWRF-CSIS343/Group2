@@ -37,8 +37,8 @@ export class SidenavComponent implements OnInit {
 
   calculateRoute(startLat: number, startLong: number, endLat: number, endLong: number) {
     console.log('Calculating route ...');
-    this.appService.addAddress();
-
+    this.appService.addTudeAddress(true, false, startLat, startLong);
+    this.appService.addTudeAddress(false, true, endLat, endLong);
   }
 
   addStartCoordinates(x: number, y: number) {

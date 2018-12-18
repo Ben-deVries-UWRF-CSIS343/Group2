@@ -54,9 +54,7 @@ export class EsriMapComponent implements OnInit {
       // Now execute additional processes
       this.mapView.when(() => {
         this.mapLoaded.emit(this.mapView);
-        console.log('map: ' , this.map);
-        console.log('mapView: ', this.mapView);
-        // this.mapView.toMap();
+
       });
     } catch (error) {
       alert('We have an error: ' + error);
