@@ -24,6 +24,6 @@ npm is distributed with Node.js- which means that when you download Node.js, you
         * Insert Image  HERE
         * Click `Next`
     * Click `Finish`
-* Once the project is imported into your favorite IDE run the following command in the `Group2/server` ```./mvnw spring-boot:run```
+* Once the project is imported into your favorite IDE navigate to the `Group2/server` directory and run the following command ```./mvnw spring-boot:run```
 * CONGRATULATIONS you have successfully started the backend!
 * Now refresh your Chrome tab and check the Developer Tools once more and you should see a successful HTTP POST and a GET request!
