@@ -7,7 +7,7 @@ npm is distributed with Node.js- which means that when you download Node.js, you
 * Your favorite IDE!
     * For the Java and Spring development I use [IntelliJ](https://www.jetbrains.com/idea/download/#section=windows)
     * And the Angular/Typescript development I use [VSCode](https://code.visualstudio.com/download)
-* [Git] (https://git-scm.com/downloads)
+* [Git](https://git-scm.com/downloads)
 * [Google Chrome](https://www.google.com/chrome/)
 ### Setting up Local Environment
 1. Set up a directory/file on your computer for pulling down this repository.
